@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ConnectButton from "@/components/layouts/navbar/connect-button";
 import { ActionChild, PrimaryButton, PrimaryButtonProto } from "@/components/elements/button";
 import { Form, FormControl, FormDescription, FormField, FormItem } from "@/components/ui/form";
+import { robinhoodTestnet } from "@/configs/chains";
 
 const formSchema = z.object({
   quantity: z.number()
@@ -65,6 +66,14 @@ export default function MintForm(
     return totalPrice > 0 ? totalPrice : "free"
   }
 
+  // Helper function to get chain configuration
+  const getChainConfig = (chainId: number) => {
+    if (chainId === 46630) { // Robinhood Testnet
+      return robinhoodTestnet;
+    }
+    return defineChain(chainId);
+  };
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     if (values.quantity > 0 && account?.address) {
       const transaction = claimTo({
@@ -78,7 +87,7 @@ export default function MintForm(
 
         if (activeChain?.id !== nft.chainID) {
           toast({ description: "switching network..." })
-          await switchChain(defineChain(nft.chainID))
+          await switchChain(getChainConfig(nft.chainID))
         }
 
         const { transactionHash } = await sendTransaction({
@@ -86,7 +95,11 @@ export default function MintForm(
           account,
         });
 
-        const receipt = await waitForReceipt({ client, chain: defineChain(nft.chainID), transactionHash });
+        const receipt = await waitForReceipt({ 
+          client, 
+          chain: getChainConfig(nft.chainID), 
+          transactionHash 
+        });
 
         if (receipt) {
           toast({
@@ -128,118 +141,116 @@ export default function MintForm(
     return false
   }
 
-  // In the form component, update the form container and elements:
-
-return (
-  <Form {...form}>
-    <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md rounded-lg space-y-4 min-w-full p-4 bg-gradient-to-b from-gray-900/80 to-black/80 border border-purple-900/40 backdrop-blur-sm">
-      
-      {/* Mint price info - Reduced size */}
-      <div className="bg-gradient-to-b from-purple-900/60 to-purple-950/80 border border-purple-800/50 rounded-lg p-3 backdrop-blur-sm">
-        <P className="text-gray-300 text-sm font-medium">
-          {taskRemaining < 1 ?
-            (quantity > 0 ?
-              <Fragment>
-                Mint for <b><span className="text-white">{getTotalPrice(quantity, nft.price)}</span>{nft.price > 0 && ` ${nft.symbol}`}</b>
-              </Fragment> :
-              <Fragment>
-                Mint each for <b><span className="text-white">{nft.price}</span> {nft.symbol}</b>
-              </Fragment>
-            ) :
-            <Flex className="items-start gap-2">
-              <AlertIcon type={"info"} className="size-4 mt-[4px] flex-shrink-0 text-purple-400" />
-              <span className="text-gray-300 text-sm">
-                {account ?
-                  <Fragment>
-                    Complete all tasks before minting
-                  </Fragment> :
-                  <Fragment>
-                    Connect your wallet to mint NFT
-                  </Fragment>}
-              </span>
-            </Flex>
-          }
-        </P>
-      </div>
-
-      {!nft.tasks &&
-        <FormField
-          control={form.control}
-          name="quantity"
-          render={({ field }) => (
-            <FormItem className="pb-1">
-              <FormControl>
-                <Input
-                  {...field}
-                  type="number"
-                  placeholder="Enter number of tokens (1-10)"
-                  className="h-10 p-2 px-3 w-full text-sm bg-gradient-to-b from-purple-900/40 to-black/80 border border-purple-800/50 text-white placeholder-gray-500 rounded-lg focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/30 transition-all"
-                  disabled={!account}
-                  onChange={(e) => field.onChange(parseInt(e.target.value))}
-                />
-              </FormControl>
-              <Flex className="items-center gap-2 mt-2">
-                <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-4 text-purple-400" />
-                <FormDescription className="text-gray-400 text-xs">
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md rounded-2xl space-y-6 min-w-[35%] p-6 bg-gradient-to-b from-gray-900/80 to-black/80 border border-purple-900/40 backdrop-blur-sm">
+        
+        {/* Mint price info with dark purple background */}
+        <div className="bg-gradient-to-b from-purple-900/60 to-purple-950/80 border border-purple-800/50 rounded-xl p-5 backdrop-blur-sm">
+          <P className="text-gray-300 text-lg font-medium">
+            {taskRemaining < 1 ?
+              (quantity > 0 ?
+                <Fragment>
+                  Mint for <b><span className="text-white">{getTotalPrice(quantity, nft.price)}</span>{nft.price > 0 && ` ${nft.symbol}`}</b>
+                </Fragment> :
+                <Fragment>
+                  Mint each for <b><span className="text-white">{nft.price}</span> {nft.symbol}</b>
+                </Fragment>
+              ) :
+              <Flex className="items-start gap-3">
+                <AlertIcon type={"info"} className="size-5 mt-[6px] flex-shrink-0 text-purple-400" />
+                <span className="text-gray-300">
                   {account ?
-                    form.formState.errors.quantity ?
-                      form.formState.errors.quantity.message :
-                      claimedMint !== undefined && reservedMints !== undefined && `${claimedMint} of ${reservedMints > 1000000000000 ? "∞" : reservedMints} minted`
-                    :
-                    "Connect your wallet to mint NFT"
-                  }
-                </FormDescription>
+                    <Fragment>
+                      Complete all tasks before minting
+                    </Fragment> :
+                    <Fragment>
+                      Connect your wallet to mint NFT
+                    </Fragment>}
+                </span>
               </Flex>
-            </FormItem>
-          )}
-        />
-      }
-
-      <div className={cn(
-        "space-y-1 min-w-full",
-        (!!form.formState.errors.quantity || loading || taskRemaining > 0) && account ? "cursor-not-allowed opacity-70" : "cursor-pointer"
-      )}
-      >
-        {account ? <PrimaryButton
-          type="submit"
-          className={cn("w-full py-2.5")}
-          disabled={ifDisabled()}
-        >
-          <Fragment>
-            {loading ? (
-              <Flex className="relative items-center gap-2" >
-                <p className="text-sm tracking-wider text-center grow">
-                  Minting...
-                </p>
-                <Loader2 className="absolute h-3.5 w-3.5 animate-spin right-0" />
-              </Flex>
-            ) :
-              <ActionChild arrowSize={"16px"} text="Mint Now" />
             }
-          </Fragment>
+          </P>
+        </div>
 
-        </PrimaryButton>
-          :
-          <div className="flex justify-center w-full">
-            <div className="w-full">
-              <ConnectButton />
-            </div>
-          </div>
+        {!nft.tasks &&
+          <FormField
+            control={form.control}
+            name="quantity"
+            render={({ field }) => (
+              <FormItem className="pb-2">
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="number"
+                    placeholder="Enter number of tokens to mint (1-10)"
+                    className="h-12 p-3 px-4 w-full text-base bg-gradient-to-b from-purple-900/40 to-black/80 border border-purple-800/50 text-white placeholder-gray-500 rounded-xl focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/30 transition-all"
+                    disabled={!account}
+                    onChange={(e) => field.onChange(parseInt(e.target.value))}
+                  />
+                </FormControl>
+                <Flex className="items-center gap-3 mt-3">
+                  <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-5 text-purple-400" />
+                  <FormDescription className="text-gray-400 text-sm">
+                    {account ?
+                      form.formState.errors.quantity ?
+                        form.formState.errors.quantity.message :
+                        claimedMint !== undefined && reservedMints !== undefined && `${claimedMint} of ${reservedMints > 1000000000000 ? "∞" : reservedMints} minted`
+                      :
+                      "Connect your wallet to mint NFT"
+                    }
+                  </FormDescription>
+                </Flex>
+              </FormItem>
+            )}
+          />
         }
-      </div>
 
-      {!!nft.tasks && account &&
-        <Flex className="items-center gap-2">
-          <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-4 text-purple-400" />
-          <FormDescription className="text-gray-400 text-xs">
-            {form.formState.errors.quantity ?
-              form.formState.errors.quantity.message :
-              claimedMint !== undefined && reservedMints !== undefined && `${claimedMint} of ${reservedMints > 1000000000000 ? "∞" : reservedMints} minted`
-            }
-          </FormDescription>
-        </Flex>
-      }
-    </form>
-  </Form>
-);
+        <div className={cn(
+          "space-y-2 min-w-[300px] max-w-[350px]",
+          (!!form.formState.errors.quantity || loading || taskRemaining > 0) && account ? "cursor-not-allowed opacity-70" : "cursor-pointer"
+        )}
+        >
+          {account ? <PrimaryButton
+            type="submit"
+            className={cn("w-full")}
+            disabled={ifDisabled()}
+          >
+            <Fragment>
+              {loading ? (
+                <Flex className="relative items-center gap-2" >
+                  <p className="mt-1 tracking-wider text-center grow">
+                    Minting...
+                  </p>
+                  <Loader2 className="absolute h-4 w-4 animate-spin right-0" />
+                </Flex>
+              ) :
+                <ActionChild arrowSize={"20px"} text="Mint Now" />
+              }
+            </Fragment>
+
+          </PrimaryButton>
+            :
+            <div className="flex justify-center w-full">
+              <div className="w-full max-w-xs">
+                <ConnectButton />
+              </div>
+            </div>
+          }
+        </div>
+
+        {!!nft.tasks && account &&
+          <Flex className="items-center gap-3">
+            <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-5 text-purple-400" />
+            <FormDescription className="text-gray-400 text-sm">
+              {form.formState.errors.quantity ?
+                form.formState.errors.quantity.message :
+                claimedMint !== undefined && reservedMints !== undefined && `${claimedMint} of ${reservedMints > 1000000000000 ? "∞" : reservedMints} minted`
+              }
+            </FormDescription>
+          </Flex>
+        }
+      </form>
+    </Form>
+  );
 }
