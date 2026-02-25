@@ -142,11 +142,13 @@ const MintSection = ({ nft }: { nft: NFT }) => {
                   {totalMinted && <span className="text-xs text-purple-300 font-semibold">{totalMinted}/∞</span>}
                 </div>
                 <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500" 
-                    style={{ width: ${Math.min((Number(totalMinted) || 0) / 1000000 * 100, 100)}% }}
-                  />
-                </div>
+                   <div
+                     className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"
+                      style={{
+                       width: `${Math.min((Number(totalMinted) || 0) / 1000000 * 100, 100)}%`
+                     }}
+                        />
+                  </div>
               </div>
 
               {/* Mint Price */}
