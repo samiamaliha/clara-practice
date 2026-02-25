@@ -21,8 +21,8 @@ import { robinhoodTestnet } from "@/configs/chains";
 
 const formSchema = z.object({
   quantity: z.number()
-    .min(1, "Minimum 1 token")
-    .max(10, "Maximum 10 tokens per transaction")
+    .min(1, "Min 1")
+    .max(10, "Max 10")
 });
 
 export default function MintForm(
@@ -86,7 +86,7 @@ export default function MintForm(
         setLoading(true)
 
         if (activeChain?.id !== nft.chainID) {
-          toast({ description: "switching network..." })
+          toast({ description: "switching..." })
           await switchChain(getChainConfig(nft.chainID))
         }
 
@@ -103,8 +103,8 @@ export default function MintForm(
 
         if (receipt) {
           toast({
-            title: "Minted Successfully",
-            description: `hash: ${transactionHash}`,
+            title: "Minted",
+            description: `hash: ${transactionHash.substring(0, 10)}...`,
             variant: "default"
           })
           refetchCondition()
@@ -143,30 +143,26 @@ export default function MintForm(
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md rounded-2xl space-y-6 min-w-[35%] p-6 bg-gradient-to-b from-gray-900/80 to-black/80 border border-purple-900/40 backdrop-blur-sm">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md rounded-lg space-y-3 min-w-full p-4 bg-gradient-to-b from-gray-900/80 to-black/80 border border-purple-900/40 backdrop-blur-sm">
         
-        {/* Mint price info with dark purple background */}
-        <div className="bg-gradient-to-b from-purple-900/60 to-purple-950/80 border border-purple-800/50 rounded-xl p-5 backdrop-blur-sm">
-          <P className="text-gray-300 text-lg font-medium">
+        {/* Mint price info - Ultra Compact */}
+        <div className="bg-gradient-to-b from-purple-900/60 to-purple-950/80 border border-purple-800/50 rounded-lg p-2 backdrop-blur-sm">
+          <P className="text-gray-300 text-xs font-medium">
             {taskRemaining < 1 ?
               (quantity > 0 ?
                 <Fragment>
                   Mint for <b><span className="text-white">{getTotalPrice(quantity, nft.price)}</span>{nft.price > 0 && ` ${nft.symbol}`}</b>
                 </Fragment> :
                 <Fragment>
-                  Mint each for <b><span className="text-white">{nft.price}</span> {nft.symbol}</b>
+                  Mint <b><span className="text-white">{nft.price}</span> {nft.symbol}</b>
                 </Fragment>
               ) :
-              <Flex className="items-start gap-3">
-                <AlertIcon type={"info"} className="size-5 mt-[6px] flex-shrink-0 text-purple-400" />
-                <span className="text-gray-300">
+              <Flex className="items-start gap-1.5">
+                <AlertIcon type={"info"} className="size-3.5 mt-[2px] flex-shrink-0 text-purple-400" />
+                <span className="text-gray-300 text-xs">
                   {account ?
-                    <Fragment>
-                      Complete all tasks before minting
-                    </Fragment> :
-                    <Fragment>
-                      Connect your wallet to mint NFT
-                    </Fragment>}
+                    "Complete tasks first" :
+                    "Connect wallet"}
                 </span>
               </Flex>
             }
@@ -178,26 +174,26 @@ export default function MintForm(
             control={form.control}
             name="quantity"
             render={({ field }) => (
-              <FormItem className="pb-2">
+              <FormItem>
                 <FormControl>
                   <Input
                     {...field}
                     type="number"
-                    placeholder="Enter number of tokens to mint (1-10)"
-                    className="h-12 p-3 px-4 w-full text-base bg-gradient-to-b from-purple-900/40 to-black/80 border border-purple-800/50 text-white placeholder-gray-500 rounded-xl focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/30 transition-all"
+                    placeholder="Qty (1-10)"
+                    className="h-9 p-2 px-3 w-full text-xs bg-gradient-to-b from-purple-900/40 to-black/80 border border-purple-800/50 text-white placeholder-gray-500 rounded-lg focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/30 transition-all"
                     disabled={!account}
                     onChange={(e) => field.onChange(parseInt(e.target.value))}
                   />
                 </FormControl>
-                <Flex className="items-center gap-3 mt-3">
-                  <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-5 text-purple-400" />
-                  <FormDescription className="text-gray-400 text-sm">
+                <Flex className="items-center gap-1.5 mt-1.5">
+                  <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-3.5 text-purple-400" />
+                  <FormDescription className="text-gray-400 text-xs">
                     {account ?
                       form.formState.errors.quantity ?
                         form.formState.errors.quantity.message :
-                        claimedMint !== undefined && reservedMints !== undefined && `${claimedMint} of ${reservedMints > 1000000000000 ? "∞" : reservedMints} minted`
+                        claimedMint !== undefined && reservedMints !== undefined && `${claimedMint}/${reservedMints > 1000000000000 ? "∞" : reservedMints}`
                       :
-                      "Connect your wallet to mint NFT"
+                      "Connect wallet"
                     }
                   </FormDescription>
                 </Flex>
@@ -207,45 +203,41 @@ export default function MintForm(
         }
 
         <div className={cn(
-          "space-y-2 min-w-[300px] max-w-[350px]",
+          "space-y-1 min-w-full",
           (!!form.formState.errors.quantity || loading || taskRemaining > 0) && account ? "cursor-not-allowed opacity-70" : "cursor-pointer"
         )}
         >
-          {account ? <PrimaryButton
-            type="submit"
-            className={cn("w-full")}
-            disabled={ifDisabled()}
-          >
-            <Fragment>
-              {loading ? (
-                <Flex className="relative items-center gap-2" >
-                  <p className="mt-1 tracking-wider text-center grow">
-                    Minting...
-                  </p>
-                  <Loader2 className="absolute h-4 w-4 animate-spin right-0" />
-                </Flex>
-              ) :
-                <ActionChild arrowSize={"20px"} text="Mint Now" />
-              }
-            </Fragment>
-
-          </PrimaryButton>
+          {account ? 
+            <PrimaryButton
+              type="submit"
+              className={cn("w-full py-2 text-xs")}
+              disabled={ifDisabled()}
+            >
+              <Fragment>
+                {loading ? (
+                  <Flex className="items-center gap-1.5 justify-center">
+                    <span>Minting...</span>
+                    <Loader2 className="h-3 w-3 animate-spin" />
+                  </Flex>
+                ) : (
+                  <span>Mint Now</span>
+                )}
+              </Fragment>
+            </PrimaryButton>
             :
             <div className="flex justify-center w-full">
-              <div className="w-full max-w-xs">
-                <ConnectButton />
-              </div>
+              <ConnectButton />
             </div>
           }
         </div>
 
         {!!nft.tasks && account &&
-          <Flex className="items-center gap-3">
-            <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-5 text-purple-400" />
-            <FormDescription className="text-gray-400 text-sm">
+          <Flex className="items-center gap-1.5">
+            <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-3.5 text-purple-400" />
+            <FormDescription className="text-gray-400 text-xs">
               {form.formState.errors.quantity ?
                 form.formState.errors.quantity.message :
-                claimedMint !== undefined && reservedMints !== undefined && `${claimedMint} of ${reservedMints > 1000000000000 ? "∞" : reservedMints} minted`
+                claimedMint !== undefined && reservedMints !== undefined && `${claimedMint}/${reservedMints > 1000000000000 ? "∞" : reservedMints}`
               }
             </FormDescription>
           </Flex>
