@@ -1,4 +1,4 @@
- "use client"
+"use client"
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
@@ -28,7 +28,7 @@ const MintSection = ({ nft }: { nft: NFT }) => {
 
   // Helper function to get the correct chain configuration
   const getChainConfig = (chainId: number) => {
-    // Check if it's Robinhood Testnet
+    // Check if it's Robinhood Testnet (replace 46630 with actual chain ID)
     if (chainId === 46630) {
       return robinhoodTestnet;
     }
@@ -64,12 +64,12 @@ const MintSection = ({ nft }: { nft: NFT }) => {
     return (
       <section
         id="mint-nft"
-        className="relative w-full container mx-auto px-4 pt-16 pb-8 text-white"
+        className="relative w-full container mx-auto px-4 pt-20 pb-12 text-white"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full max-w-6xl mx-auto mt-6">
           {/* Loading skeletons */}
-          <div className="h-[400px] bg-gradient-to-b from-gray-900/50 to-black/50 rounded-xl animate-pulse"></div>
-          <div className="h-[400px] bg-gradient-to-b from-gray-900/50 to-black/50 rounded-xl animate-pulse"></div>
+          <div className="h-[600px] bg-gradient-to-b from-gray-900/50 to-black/50 rounded-2xl animate-pulse"></div>
+          <div className="h-[600px] bg-gradient-to-b from-gray-900/50 to-black/50 rounded-2xl animate-pulse"></div>
         </div>
       </section>
     )
@@ -83,18 +83,18 @@ const MintSection = ({ nft }: { nft: NFT }) => {
   return (
     <section
       id="mint-nft"
-      className="relative w-full container mx-auto px-4 pt-16 pb-8 text-white"
+      className="relative w-full container mx-auto px-4 pt-20 pb-12 text-white"
     >
       {/* Spacer for mobile devices */}
-      <div className="h-8 md:hidden"></div>
+      <div className="h-12 md:hidden"></div>
       
-      <Grid className="grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full max-w-5xl mx-auto">
+      <Grid className="grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full max-w-6xl mx-auto mt-6">
 
         {/* NFT Image Card */}
-        <div className="relative group">
-          <div className="relative rounded-xl overflow-hidden border border-purple-500/30 bg-gradient-to-b from-purple-900/30 to-black/70 backdrop-blur-sm">
+        <div className="relative group mt-6 md:mt-8">
+          <div className="relative rounded-2xl overflow-hidden border-2 border-purple-500/30 bg-gradient-to-b from-purple-900/30 to-black/70 backdrop-blur-sm">
             {nft.soldOut && (
-              <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-gradient-to-r from-red-600 to-red-700 rounded-md text-xs font-bold text-white backdrop-blur-sm">
+              <div className="absolute top-4 left-4 z-10 px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 rounded-lg text-sm font-bold text-white backdrop-blur-sm">
                 Sold Out
               </div>
             )}
@@ -102,82 +102,80 @@ const MintSection = ({ nft }: { nft: NFT }) => {
             <FadeInImage
               src={imageURI}
               alt="NFT Preview"
-              width={500}
-              height={500}
-              className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+              width={600}
+              height={600}
+              className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
             />
             
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
           </div>
         </div>
 
-        {/* Minting Details - Ultra Compact */}
-        <div className="flex flex-col gap-4">
+        {/* Minting Details - Compact version */}
+        <div className="flex flex-col gap-6 mt-6 md:mt-8">
           {/* Header section */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2 flex-wrap">
-              <H1 className="text-xl md:text-2xl font-bold text-white leading-tight">{title}</H1>
-              <div className="flex items-center gap-1">
-                <span className="px-1.5 py-0.5 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded border border-purple-500/40 text-xs font-semibold text-purple-300">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 flex-wrap">
+              <H1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">{title}</H1>
+              <div className="flex items-center gap-1.5">
+                <span className="px-2 py-1 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-md border border-purple-500/40 text-xs font-semibold text-purple-300">
                   #{nft.hash}
                 </span>
-                <span className="px-1.5 py-0.5 border border-purple-500/40 rounded text-xs text-gray-300">
+                <span className="px-2 py-1 border border-purple-500/40 rounded-md text-xs text-gray-300">
                   {nft.chain}
                 </span>
-                <button onClick={() => { refetchClaimed(); refetchCondition() }} className="p-1 hover:bg-purple-900/30 rounded transition-colors">
-                  <Loader2 size={14} className={cn("text-purple-400", claimedMintLoading || conditionClaimPending ? "animate-spin" : "")} />
+                <button onClick={() => { refetchClaimed(); refetchCondition() }} className="p-1.5 hover:bg-purple-900/30 rounded-md transition-colors">
+                  <Loader2 size={16} className={cn("text-purple-400", claimedMintLoading || conditionClaimPending ? "animate-spin" : "")} />
                 </button>
               </div>
             </div>
 
-            <P className="text-gray-300 text-xs leading-relaxed" dangerouslySetInnerHTML={{ __html: sanitizedText }} />
+            <P className="text-gray-300 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: sanitizedText }} />
 
-            {/* Stats cards - Ultra Compact */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            {/* Stats cards - More compact */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {/* Collection Progress */}
-              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-lg p-2 backdrop-blur-sm">
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-xs text-gray-400">Progress</span>
-                  {totalMinted && <span className="text-xs text-purple-300 font-semibold">{totalMinted}/∞</span>}
+              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 backdrop-blur-sm">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-xs text-gray-400">Collection Progress</span>
+                  {totalMinted && <span className="text-xs text-purple-300 font-semibold">{totalMinted} / ∞</span>}
                 </div>
-                <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                 <div
-                className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"
-                 style={{
-                  width: `${Math.min((Number(totalMinted) || 0) / 1000000 * 100, 100)}%`
-                 }}
-                 />
-
-                  </div>
+                <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500" 
+                    style={{ width: `${Math.min((Number(totalMinted) || 0) / 1000000 * 100, 100)}%` }}
+                  />
+                </div>
               </div>
 
               {/* Mint Price */}
-              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-lg p-2 text-center backdrop-blur-sm">
-                <div className="text-xs text-gray-400">Mint Price</div>
-                <div className="text-base font-bold text-white">
-                  {nft.price > 0 ? ${nft.price} ${nft.symbol} : "Free"}
+              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 text-center backdrop-blur-sm">
+                <div className="text-xs text-gray-400 mb-1">Mint Price</div>
+                <div className="text-xl font-bold text-white">
+                  {nft.price > 0 ? `${nft.price} ${nft.symbol}` : "Free"}
                 </div>
               </div>
             </div>
 
-            {/* Info cards - Ultra Compact */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            {/* Info cards - More compact */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {/* Address copy */}
-              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-lg p-2 backdrop-blur-sm">
-                <div className="text-xs text-gray-400">Contract</div>
+              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 backdrop-blur-sm">
+                <div className="text-xs text-gray-400 mb-1">Contract Address</div>
                 <CopyToClipboard text={nft.address} label={shortenAddress(nft.address, 4)} />
               </div>
               
               {nft.faucetURI && (
                 <Link href={nft.faucetURI} target="_blank" rel="noopener noreferrer" className="group">
-                  <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-lg p-2 h-full flex items-center justify-center hover:border-purple-400/60 transition-all duration-200 backdrop-blur-sm">
-                    <Flex className="gap-1.5 items-center">
-                      <div className="w-6 h-6 rounded-md bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
-                        <ExternalLink className="w-3.5 h-3.5 text-purple-300" />
+                  <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 h-full flex items-center justify-center hover:border-purple-400/60 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
+                    <Flex className="gap-2 items-center">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
+                        <ExternalLink className="w-4 h-4 text-purple-300" />
                       </div>
                       <div className="text-left">
-                        <div className="text-xs text-white font-medium">Faucet</div>
+                        <div className="text-sm text-white font-medium">Faucet/Bridge</div>
+                        <div className="text-xs text-gray-400">Get test tokens</div>
                       </div>
                     </Flex>
                   </div>
@@ -185,30 +183,31 @@ const MintSection = ({ nft }: { nft: NFT }) => {
               )}
             </div>
 
-            {/* Total Minted and Explorer - Ultra Compact */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            {/* Total Minted and Explorer - More compact */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {typeof totalMinted !== "undefined" && totalMinted > 0 && (
-                <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-lg p-2 backdrop-blur-sm">
-                  <Flex className="items-center gap-1.5">
-                    <div className="w-6 h-6 rounded-md bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
-                      <span className="text-white font-bold text-xs">{totalMinted}</span>
+                <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 backdrop-blur-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">{totalMinted}</span>
                     </div>
                     <div className="text-left">
-                      <div className="text-xs text-gray-400">Minted</div>
-                      <div className="text-xs text-white font-medium">{totalMinted} NFTs</div>
+                      <div className="text-xs text-gray-400">Total Minted</div>
+                      <div className="text-sm text-white font-medium">{totalMinted} NFTs</div>
                     </div>
-                  </Flex>
+                  </div>
                 </div>
               )}
               
               <Link href={nft.explorerURI} target="_blank" rel="noopener noreferrer" className="group">
-                <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-lg p-2 hover:border-purple-400/60 transition-all duration-200 backdrop-blur-sm">
-                  <Flex className="gap-1.5 items-center">
-                    <div className="w-6 h-6 rounded-md bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
-                      <ExternalLink className="w-3.5 h-3.5 text-purple-300" />
+                <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 hover:border-purple-400/60 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
+                  <Flex className="gap-2 items-center">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
+                      <ExternalLink className="w-4 h-4 text-purple-300" />
                     </div>
                     <div className="text-left">
-                      <div className="text-xs text-white font-medium">Explorer</div>
+                      <div className="text-sm text-white font-medium">View on Explorer</div>
+                      <div className="text-xs text-gray-400">Check transaction</div>
                     </div>
                   </Flex>
                 </div>
@@ -216,9 +215,9 @@ const MintSection = ({ nft }: { nft: NFT }) => {
             </div>
           </div>
 
-          {/* Tasks section - Ultra Compact */}
+          {/* Tasks section */}
           {!!nft.tasks && (
-            <div className={cn("transition-all duration-300", nft.price === 0 ? "bg-gradient-to-b from-purple-900/30 to-black/50 rounded-lg border border-purple-500/30 p-3" : "")}>
+            <div className={cn("transition-all duration-300", nft.price === 0 ? "bg-gradient-to-b from-purple-900/30 to-black/50 rounded-xl border border-purple-500/30 p-4" : "")}>
               <TaskHandler
                 tasks={nft.tasks}
                 completedTasks={tasksCompleted}
