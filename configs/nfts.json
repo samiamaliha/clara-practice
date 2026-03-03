@@ -971,6 +971,43 @@
   
 }
 
+
+  {
+"id": 23,
+"hash": "orion",
+"name": "ORION",
+"chain": "Robinhood Chain Testnet",
+"chainID": 46630,
+"address":  "0x924E88122e06c6eCe0923732089b7fc7a5b544bc",
+"explorerURI": "https://explorer.testnet.chain.robinhood.com/0x924E88122e06c6eCe0923732089b7fc7a5b544bc",
+"description": " **ORION** 🔥<br/>A Nft on Robinhood Chain Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/orion.jpg",
+"symbol": "ETH",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2026612749812511183",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
   
 
 
