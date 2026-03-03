@@ -927,6 +927,50 @@
 }
 
 
+
+  ,
+
+
+
+
+
+{
+  "id": 22,
+  "hash": "tempura",
+  "name": "ELSIE",
+  "chain": "Tempo Testnet",
+  "chainID": 42431 ,
+  "address": "0xD278adeBF8C8c4b1dac74b1e906Db048a9740D9a",
+  "explorerURI": "https://explore.tempo.xyz/address/0x009F3dF0871C3773Cc65976B010E147BCd0a7bFD?live=false",
+  "description": " **ELSIE** 🔥<br/>A Nft on Tempo Testnet 💎<br/>🎁 Experience exclusive seasonal benefits and giveaways✨",
+  "imageURI": "/images/nfts/elsie.png",
+  "symbol": "USD",
+  "price": 0.0,
+  "tags": "phoenixar",
+  "faucetURI": "https://docs.tempo.xyz/quickstart/faucet#faucet",
+  "priority": 2,
+  "linkTo": "unidrive",
+  "tasks": [
+    {
+      "title": "Follow On Twitter",
+      "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+      "type": "twitter"
+    },
+    {
+      "title": "Retweet The Post",
+      "href": "https://x.com/intent/retweet?tweet_id=2010709049155915912",
+      "type": "retweet"
+    },
+       {
+      "title": "Claim ACCESS PASS",
+      "href": "https://www.clarachain.net/access",
+      "type": "claim"
+    }
+
+  ]
+  
+}
+
   
 
 
