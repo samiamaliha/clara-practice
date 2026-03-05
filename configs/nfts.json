@@ -1016,6 +1016,48 @@
 
 
 
+  ,
+
+
+  {
+"id": 24,
+"hash": "kael",
+"name": "KAEL",
+"chain": "Robinhood Chain Testnet",
+"chainID": 46630,
+"address":  "0xc2DE1B9439b182817222876962c2a6cd1B3B0DB4",
+"explorerURI": "https://explorer.testnet.chain.robinhood.com/0xc2DE1B9439b182817222876962c2a6cd1B3B0DB4",
+"description": " **KAEL** 🔥<br/>A Nft on Robinhood Chain Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/kael.jpg",
+"symbol": "ETH",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2028729318084583693",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+  
+
+
 
 
 
