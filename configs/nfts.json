@@ -1055,7 +1055,51 @@
 ]
 
 }
-  
+
+
+    ,
+
+
+
+
+
+
+{
+"id": 25,
+"hash": "valkyrie",
+"name": "VALKYRIE",
+"chain": "Arc Testnet",
+"chainID": 5042002,
+"address":  "0xa0d8107085a42d18FCE31497bdB5Ebd610ee35B5",
+"explorerURI": "https://testnet.arcscan.app/address/0xa0d8107085a42d18FCE31497bdB5Ebd610ee35B5",
+"description": " **VALKYRIE** 🔥<br/>A Nft on Arc Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/valkyrie.jpg",
+"symbol": "USDC",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2022601446013956391",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
 
 
 
