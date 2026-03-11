@@ -1143,6 +1143,51 @@
 
 }
 
+  ,
+
+
+
+
+
+  {
+    "id": 27,
+    "hash": "locket",
+    "name": "SLYTHERIN LOCKET",
+    "chain": "BASE",
+    "chainID": 8453 ,
+    "address": "0xd9802568775c854e8BaE918C2F2fbCECD7fe2f1d",
+    "explorerURI": "https://basescan.org/address/0xd9802568775c854e8BaE918C2F2fbCECD7fe2f1d",
+    "description": " **SLYTHERIN LOCKET** 🔥<br/>A Nft on Tempo Testnet 💎<br/>🎁 Experience exclusive seasonal benefits and giveaways✨",
+    "imageURI": "/images/nfts/locket.jpg",
+    "symbol": "ETH",
+    "price": 0.0008,
+    "tags": "phoenixar",
+    "faucetURI": "https://docs.tempo.xyz/quickstart/faucet#faucet",
+    "priority": 2,
+    "linkTo": "unidrive",
+    "tasks": [
+      {
+        "title": "Follow On Twitter",
+        "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+        "type": "twitter"
+      },
+      {
+        "title": "Retweet The Post",
+        "href": "https://x.com/intent/retweet?tweet_id=2011469502660378838",
+        "type": "retweet"
+      },
+         {
+        "title": "Claim ACCESS PASS",
+        "href": "https://www.clarachain.net/access",
+        "type": "claim"
+      }
+
+    ]
+    
+  }
+
+
+
 
 
 
