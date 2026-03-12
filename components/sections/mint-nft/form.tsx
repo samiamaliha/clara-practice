@@ -17,7 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ConnectButton from "@/components/layouts/navbar/connect-button";
 import { ActionChild, PrimaryButton, PrimaryButtonProto } from "@/components/elements/button";
 import { Form, FormControl, FormDescription, FormField, FormItem } from "@/components/ui/form";
-import { robinhoodTestnet } from "@/configs/chains";
+import { robinhoodTestnet, pharosTestnet } from "@/configs/chains";
 
 const formSchema = z.object({
   quantity: z.number()
@@ -70,6 +70,9 @@ export default function MintForm(
   const getChainConfig = (chainId: number) => {
     if (chainId === 46630) { // Robinhood Testnet
       return robinhoodTestnet;
+    }
+    if (chainId === 688689) { // Pharos Testnet
+      return pharosTestnet;
     }
     return defineChain(chainId);
   };
