@@ -36,7 +36,7 @@ const MintSection = ({ nft }: { nft: NFT }) => {
     if (chainId === 688689) {
       return pharosTestnet;
     }
-    // For all other chain, use Thirdweb's defineChain
+    // For all other chains, use Thirdweb's defineChain
     return defineChain(chainId);
   };
 
@@ -117,35 +117,35 @@ const MintSection = ({ nft }: { nft: NFT }) => {
         </div>
 
         {/* Minting Details - Compact version */}
-        <div className="flex flex-col gap-8 mt-6 md:mt-8">
+        <div className="flex flex-col gap-6 mt-6 md:mt-8">
           {/* Header section */}
-          <div className="space-y-8 pt-2">
-            <div className="flex items-center gap-4 flex-wrap">
-              <H1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">{title}</H1>
-              <div className="flex items-center gap-2">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 flex-wrap">
+              <H1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">{title}</H1>
+              <div className="flex items-center gap-1.5">
                 <span className="px-2 py-1 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-md border border-purple-500/40 text-xs font-semibold text-purple-300">
                   #{nft.hash}
                 </span>
-                <span className="px-3 py-1.5 border border-purple-500/40 rounded-lg text-sm text-gray-300">
+                <span className="px-2 py-1 border border-purple-500/40 rounded-md text-xs text-gray-300">
                   {nft.chain}
                 </span>
-                <button onClick={() => { refetchClaimed(); refetchCondition() }} className="p-2 hover:bg-purple-900/30 rounded-lg transition-colors">
-                  <Loader2 size={18} className={cn("text-purple-400", claimedMintLoading || conditionClaimPending ? "animate-spin" : "")} />
+                <button onClick={() => { refetchClaimed(); refetchCondition() }} className="p-1.5 hover:bg-purple-900/30 rounded-md transition-colors">
+                  <Loader2 size={16} className={cn("text-purple-400", claimedMintLoading || conditionClaimPending ? "animate-spin" : "")} />
                 </button>
               </div>
             </div>
 
-            <P className="text-gray-300 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: sanitizedText }} />
+            <P className="text-gray-300 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: sanitizedText }} />
 
             {/* Stats cards - More compact */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {/* Collection Progress */}
-              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-4 backdrop-blur-sm">
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-sm text-gray-400">Collection Progress</span>
-                  {totalMinted && <span className="text-sm text-purple-300 font-semibold">{totalMinted} / ∞</span>}
+              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 backdrop-blur-sm">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-xs text-gray-400">Collection Progress</span>
+                  {totalMinted && <span className="text-xs text-purple-300 font-semibold">{totalMinted} / ∞</span>}
                 </div>
-                <div className="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500" 
                     style={{ width: `${Math.min((Number(totalMinted) || 0) / 1000000 * 100, 100)}%` }}
@@ -154,28 +154,28 @@ const MintSection = ({ nft }: { nft: NFT }) => {
               </div>
 
               {/* Mint Price */}
-              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-4 text-center backdrop-blur-sm">
-                <div className="text-sm text-gray-400 mb-2">Mint Price</div>
-                <div className="text-2xl font-bold text-white">
+              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 text-center backdrop-blur-sm">
+                <div className="text-xs text-gray-400 mb-1">Mint Price</div>
+                <div className="text-xl font-bold text-white">
                   {nft.price > 0 ? `${nft.price} ${nft.symbol}` : "Free"}
                 </div>
               </div>
             </div>
 
             {/* Info cards - More compact */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {/* Address copy */}
-              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-4 backdrop-blur-sm">
-                <div className="text-sm text-gray-400 mb-2">Contract Address</div>
+              <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 backdrop-blur-sm">
+                <div className="text-xs text-gray-400 mb-1">Contract Address</div>
                 <CopyToClipboard text={nft.address} label={shortenAddress(nft.address, 4)} />
               </div>
               
               {nft.faucetURI && (
                 <Link href={nft.faucetURI} target="_blank" rel="noopener noreferrer" className="group">
-                  <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-4 h-full flex items-center justify-center hover:border-purple-400/60 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
-                    <Flex className="gap-3 items-center">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
-                        <ExternalLink className="w-5 h-5 text-purple-300" />
+                  <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 h-full flex items-center justify-center hover:border-purple-400/60 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
+                    <Flex className="gap-2 items-center">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
+                        <ExternalLink className="w-4 h-4 text-purple-300" />
                       </div>
                       <div className="text-left">
                         <div className="text-sm text-white font-medium">Faucet/Bridge</div>
@@ -188,30 +188,30 @@ const MintSection = ({ nft }: { nft: NFT }) => {
             </div>
 
             {/* Total Minted and Explorer - More compact */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {typeof totalMinted !== "undefined" && totalMinted > 0 && (
-                <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">{totalMinted}</span>
+                <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 backdrop-blur-sm">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">{totalMinted}</span>
                     </div>
                     <div className="text-left">
-                      <div className="text-sm text-gray-400">Total Minted</div>
-                      <div className="text-white font-medium">{totalMinted} NFTs</div>
+                      <div className="text-xs text-gray-400">Total Minted</div>
+                      <div className="text-sm text-white font-medium">{totalMinted} NFTs</div>
                     </div>
                   </div>
                 </div>
               )}
               
               <Link href={nft.explorerURI} target="_blank" rel="noopener noreferrer" className="group">
-                <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-4 hover:border-purple-400/60 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
-                  <Flex className="gap-3 items-center">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
-                      <ExternalLink className="w-5 h-5 text-purple-300" />
+                <div className="bg-gradient-to-b from-purple-900/40 to-black/60 border border-purple-500/30 rounded-xl p-3 hover:border-purple-400/60 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
+                  <Flex className="gap-2 items-center">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-600/30 to-pink-600/30 flex items-center justify-center">
+                      <ExternalLink className="w-4 h-4 text-purple-300" />
                     </div>
                     <div className="text-left">
-                      <div className="text-white font-medium">View on Explorer</div>
-                      <div className="text-sm text-gray-400">Check transaction</div>
+                      <div className="text-sm text-white font-medium">View on Explorer</div>
+                      <div className="text-xs text-gray-400">Check transaction</div>
                     </div>
                   </Flex>
                 </div>
@@ -221,7 +221,7 @@ const MintSection = ({ nft }: { nft: NFT }) => {
 
           {/* Tasks section */}
           {!!nft.tasks && (
-            <div className={cn("transition-all duration-300", nft.price === 0 ? "bg-gradient-to-b from-purple-900/30 to-black/50 rounded-xl border border-purple-500/30 p-5" : "")}>
+            <div className={cn("transition-all duration-300", nft.price === 0 ? "bg-gradient-to-b from-purple-900/30 to-black/50 rounded-xl border border-purple-500/30 p-4" : "")}>
               <TaskHandler
                 tasks={nft.tasks}
                 completedTasks={tasksCompleted}
