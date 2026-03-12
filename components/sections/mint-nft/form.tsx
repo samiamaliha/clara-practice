@@ -146,11 +146,11 @@ export default function MintForm(
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md rounded-lg space-y-3 min-w-full p-4 bg-gradient-to-b from-gray-900/80 to-black/80 border border-purple-900/40 backdrop-blur-sm">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md rounded-2xl space-y-6 min-w-[35%] p-6 bg-gradient-to-b from-gray-900/80 to-black/80 border border-purple-900/40 backdrop-blur-sm">
         
         {/* Mint price info - Ultra Compact */}
-        <div className="bg-gradient-to-b from-purple-900/60 to-purple-950/80 border border-purple-800/50 rounded-lg p-2 backdrop-blur-sm">
-          <P className="text-gray-300 text-xs font-medium">
+        <div className="bg-gradient-to-b from-purple-900/60 to-purple-950/80 border border-purple-800/50 rounded-xl p-5 backdrop-blur-sm">
+          <P className="text-gray-300 text-lg font-medium">
             {taskRemaining < 1 ?
               (quantity > 0 ?
                 <Fragment>
@@ -160,9 +160,9 @@ export default function MintForm(
                   Mint <b><span className="text-white">{nft.price}</span> {nft.symbol}</b>
                 </Fragment>
               ) :
-              <Flex className="items-start gap-1.5">
-                <AlertIcon type={"info"} className="size-3.5 mt-[2px] flex-shrink-0 text-purple-400" />
-                <span className="text-gray-300 text-xs">
+              <Flex className="items-start gap-3">
+                <AlertIcon type={"info"} className="size-5 mt-[6px] flex-shrink-0 text-purple-400" />
+                <span className="text-gray-300">
                   {account ?
                     "Complete tasks first" :
                     "Connect wallet"}
@@ -177,20 +177,20 @@ export default function MintForm(
             control={form.control}
             name="quantity"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="pb-2">
                 <FormControl>
                   <Input
                     {...field}
                     type="number"
                     placeholder="Qty (1-10)"
-                    className="h-9 p-2 px-3 w-full text-xs bg-gradient-to-b from-purple-900/40 to-black/80 border border-purple-800/50 text-white placeholder-gray-500 rounded-lg focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/30 transition-all"
+                    className="h-12 p-3 px-4 w-full text-base bg-gradient-to-b from-purple-900/40 to-black/80 border border-purple-800/50 text-white placeholder-gray-500 rounded-xl focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/30 transition-all"
                     disabled={!account}
                     onChange={(e) => field.onChange(parseInt(e.target.value))}
                   />
                 </FormControl>
-                <Flex className="items-center gap-1.5 mt-1.5">
-                  <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-3.5 text-purple-400" />
-                  <FormDescription className="text-gray-400 text-xs">
+                <Flex className="items-center gap-3 mt-3">
+                  <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-5 text-purple-400" />
+                  <FormDescription className="text-gray-400 text-sm">
                     {account ?
                       form.formState.errors.quantity ?
                         form.formState.errors.quantity.message :
@@ -206,38 +206,42 @@ export default function MintForm(
         }
 
         <div className={cn(
-          "space-y-1 min-w-full",
+          "space-y-2 min-w-[300px] max-w-[350px]",
           (!!form.formState.errors.quantity || loading || taskRemaining > 0) && account ? "cursor-not-allowed opacity-70" : "cursor-pointer"
         )}
         >
           {account ? 
             <PrimaryButton
               type="submit"
-              className={cn("w-full py-2 text-xs")}
+              className={cn("w-full")}
               disabled={ifDisabled()}
             >
               <Fragment>
-                {loading ? (
-                  <Flex className="items-center gap-1.5 justify-center">
-                    <span>Minting...</span>
-                    <Loader2 className="h-3 w-3 animate-spin" />
-                  </Flex>
-                ) : (
-                  <span>Mint Now</span>
-                )}
-              </Fragment>
+              {loading ? (
+                <Flex className="relative items-center gap-2" >
+                  <p className="mt-1 tracking-wider text-center grow">
+                    Minting...
+                  </p>
+                  <Loader2 className="absolute h-4 w-4 animate-spin right-0" />
+                </Flex>
+              ) :
+                <ActionChild arrowSize={"20px"} text="Mint Now" />
+              }
+            </Fragment>
             </PrimaryButton>
             :
             <div className="flex justify-center w-full">
-              <ConnectButton />
+              <div className="w-full max-w-xs">
+                <ConnectButton />
+              </div>
             </div>
           }
         </div>
 
         {!!nft.tasks && account &&
-          <Flex className="items-center gap-1.5">
-            <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-3.5 text-purple-400" />
-            <FormDescription className="text-gray-400 text-xs">
+          <Flex className="items-center gap-3">
+            <AlertIcon type={account ? form.formState.errors.quantity ? "error" : "success" : "info"} className="size-5 text-purple-400" />
+            <FormDescription className="text-gray-400 text-sm">
               {form.formState.errors.quantity ?
                 form.formState.errors.quantity.message :
                 claimedMint !== undefined && reservedMints !== undefined && `${claimedMint}/${reservedMints > 1000000000000 ? "∞" : reservedMints}`
