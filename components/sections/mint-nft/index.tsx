@@ -36,7 +36,7 @@ const MintSection = ({ nft }: { nft: NFT }) => {
     if (chainId === 688689) {
       return pharosTestnet;
     }
-    // For all other chains, use Thirdweb's defineChain
+    // For all other chain, use Thirdweb's defineChain
     return defineChain(chainId);
   };
 
