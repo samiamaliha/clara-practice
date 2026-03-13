@@ -1244,7 +1244,7 @@
 
 
 {
-"id": 25,
+"id": 29,
 "hash": "arcgold",
 "name": "ARC GOLD",
 "chain": "Arc Testnet",
@@ -1267,7 +1267,7 @@
   },
   {
     "title": "Retweet The Post",
-    "href": "https://x.com/intent/retweet?tweet_id=2030361798353059883",
+    "href": "https://x.com/intent/retweet?tweet_id=2032512714644623657",
     "type": "retweet"
   },
      {
