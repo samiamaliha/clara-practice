@@ -1281,6 +1281,54 @@
 }
 
 
+   ,
+
+
+  {
+"id": 30,
+"hash": "MOON QUEEN",
+"name": "MOON QUEEN",
+"chain": "Robinhood Chain Testnet",
+"chainID": 46630,
+"address":  "0xF66D6bEEF0d3915744aF731771e48C83688938bE",
+"explorerURI": "https://explorer.testnet.chain.robinhood.com/0xF66D6bEEF0d3915744aF731771e48C83688938bE",
+"description": " **MOON QUEEN** 🔥<br/>A Nft on Robinhood Chain Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/moon.jpg",
+"symbol": "ETH",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2031797958212272236",
+    "type": "retweet"
+  },
+
+  {
+    "title": "Click here for Horocrux",
+    "href": "https://x.com/intent/retweet?tweet_id=2031847764179763621",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
+
+
 
 
 
