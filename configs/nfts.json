@@ -1323,6 +1323,49 @@
 
 }
 
+   ,
+
+
+
+
+
+  {
+    "id": 31,
+    "hash": "linia",
+    "name": "LINIA",
+    "chain": "PHAROS TESTNET",
+    "chainID": 688689 ,
+    "address": "0x6193a50b41B81610464A1bdC4599DB855d2d6b3b",
+    "explorerURI": "https://testnet.pharosscan.xyz",
+    "description": " **LINIA** 🔥<br/>A Nft on Pharos Testnet 💎<br/>🎁 Experience exclusive seasonal benefits and giveaways✨",
+    "imageURI": "/images/nfts/linia.jpg",
+    "symbol": "PHRS",
+    "price": 0,
+    "tags": "phoenixar",
+    "faucetURI": "https://testnet.pharosnetwork.xyz/",
+    "priority": 2,
+    "linkTo": "unidrive",
+    "tasks": [
+      {
+        "title": "Follow On Twitter",
+        "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+        "type": "twitter"
+      },
+      {
+        "title": "Retweet The Post",
+        "href": "https://x.com/intent/retweet?tweet_id=2032394606709760472",
+        "type": "retweet"
+      },
+         {
+        "title": "Claim ACCESS PASS",
+        "href": "https://www.clarachain.net/access",
+        "type": "claim"
+      }
+
+    ]
+    
+  }
+
 
 
 
