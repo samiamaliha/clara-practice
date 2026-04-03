@@ -1542,6 +1542,51 @@
 }
 
 
+  
+   ,
+
+
+  {
+"id": 36,
+"hash": "veloura",
+"name": "=VELOURA",
+"chain": "Robinhood Chain Testnet",
+"chainID": 46630,
+"address":  "0x63a08c20071f709582ce02F3Db160A7B0Fc57eAA",
+"explorerURI": "https://explorer.testnet.chain.robinhood.com/0x63a08c20071f709582ce02F3Db160A7B0Fc57eAA",
+"description": " **VELOURA** 🔥<br/>A Nft on Robinhood Chain Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/veloura.jpg",
+"symbol": "ETH",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://faucet.testnet.chain.robinhood.com/",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2036880229210476953",
+    "type": "retweet"
+  },
+
+
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
+
+
 
 
 
