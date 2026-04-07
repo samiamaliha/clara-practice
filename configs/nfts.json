@@ -1585,6 +1585,51 @@
 
 }
 
+  ,
+
+
+
+
+
+  {
+    "id": 37,
+    "hash": "alina",
+    "name": "ALINA",
+    "chain": "PHAROS TESTNET",
+    "chainID": 688689 ,
+    "address": "0xEba59249016bf13c14202273F2Dd6DF086A81071",
+    "explorerURI": "https://testnet.pharosscan.xyz",
+    "description": " **ALINA** 🔥<br/>A Nft on Pharos Testnet 💎<br/>🎁 Experience exclusive seasonal benefits and giveaways✨",
+    "imageURI": "/images/nfts/alina.jpg",
+    "symbol": "PHRS",
+    "price": 0,
+    "tags": "phoenixar",
+    "faucetURI": "https://testnet.pharosnetwork.xyz/",
+    "priority": 2,
+    "linkTo": "unidrive",
+    "tasks": [
+      {
+        "title": "Follow On Twitter",
+        "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+        "type": "twitter"
+      },
+      {
+        "title": "Retweet The Post",
+        "href": "https://x.com/intent/retweet?tweet_id=2033984520664633582",
+        "type": "retweet"
+      },
+         {
+        "title": "Claim ACCESS PASS",
+        "href": "https://www.clarachain.net/access",
+        "type": "claim"
+      }
+
+    ]
+    
+  }
+
+
+
 
 
 
