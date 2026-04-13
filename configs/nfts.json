@@ -1629,6 +1629,52 @@
   }
 
 
+  ,
+
+
+
+
+
+
+{
+"id": 38,
+"hash": "samurai",
+"name": "SAMURAI",
+"chain": "Arc Testnet",
+"chainID": 5042002,
+"address":  "0x24f25cffFA36e06799D579f32721C9a843F354Cf",
+"explorerURI": "https://testnet.arcscan.app/address/0x24f25cffFA36e06799D579f32721C9a843F354Cf",
+"description": " **SAMURAI** 🔥<br/>A Nft on Arc Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/samurai.jpg",
+"symbol": "USDC",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2037602853611843864",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
+
+
 
 
 
