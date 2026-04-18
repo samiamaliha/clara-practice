@@ -1674,6 +1674,49 @@
 }
 
 
+   ,
+
+
+  {
+"id": 39,
+"hash": "pirates",
+"name": "PIRATES",
+"chain": "Robinhood Chain Testnet",
+"chainID": 46630,
+"address":  "0x75335665763a77cfa9Da5576C1aD0EDa4A2BBAC9",
+"explorerURI": "https://explorer.testnet.chain.robinhood.com/0x75335665763a77cfa9Da5576C1aD0EDa4A2BBAC9",
+"description": " **PIRATES** 🔥<br/>A Nft on Robinhood Chain Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/pirates.png",
+"symbol": "ETH",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://faucet.testnet.chain.robinhood.com/",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2040149825317151096",
+    "type": "retweet"
+  },
+
+
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
+
 
 
 
