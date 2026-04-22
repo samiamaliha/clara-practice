@@ -1717,6 +1717,49 @@
 }
 
 
+  ,
+
+
+  {
+"id": 40,
+"hash": "rika",
+"name": "RIKA",
+"chain": "Robinhood Chain Testnet",
+"chainID": 46630,
+"address":  "0xbf70303160A2ba5A6A8C7E6E4b3E7D4Bf12B7e3C",
+"explorerURI": "https://explorer.testnet.chain.robinhood.com/0xbf70303160A2ba5A6A8C7E6E4b3E7D4Bf12B7e3C",
+"description": " **RIKA** 🔥<br/>A Nft on Robinhood Chain Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/rika.png",
+"symbol": "ETH",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://faucet.testnet.chain.robinhood.com/",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2045417904204886189",
+    "type": "retweet"
+  },
+
+
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
+
 
 
 
