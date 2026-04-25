@@ -32,14 +32,35 @@ export const pharosTestnet = defineChain({
   blockExplorers: [
     {
       name: "Pharos Explorer",
-      url: "https://explorer.pharos-testnet.com", // You may need to update this URL
+      url: "https://explorer.pharos-testnet.com",
     },
   ],
   testnet: true,
+});
+
+// Define DAC Testnet
+export const dacTestnet = defineChain({
+  id: 21894,
+  name: "DAC Testnet",
+  rpc: "https://rpctest.dachain.tech",
+  nativeCurrency: {
+    name: "DAC",
+    symbol: "tDACC",
+    decimals: 18,
+  },
+  blockExplorers: [
+    {
+      name: "DAC Explorer",
+      url: "https://exptest.dachain.tech:3000",
+    },
+  ],
+  testnet: true,
+  faucetUrl: "https://faucet.dachain.tech", // Optional, can be used elsewhere
 });
 
 // Add other custom chains here if needed
 export const customChains = {
   robinhoodTestnet,
   pharosTestnet,
+  dacTestnet,
 };
