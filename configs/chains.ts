@@ -55,7 +55,6 @@ export const dacTestnet = defineChain({
     },
   ],
   testnet: true,
-  faucetUrl: "https://faucet.dachain.tech", // Optional, can be used elsewhere
 });
 
 // Add other custom chains here if needed
