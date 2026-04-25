@@ -1806,6 +1806,50 @@
 
 }
 
+,
+
+
+
+
+
+
+{
+"id": 44,
+"hash": "elin",
+"name": "ELIN",
+"chain": "Dac Testnet",
+"chainID": 21894,
+"address":  "0x1Ec631bfc80822c9b6F8BEbE461684BbB315e62D",
+"explorerURI": "https://testnet.arcscan.app/address/0xD07D5269deE9D8bb424057f986Cd3315CecF1d43",
+"description": " **SAIRA** 🔥<br/>A Nft on Arc Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/elin.png",
+"symbol": "USDC",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2048029478094532921",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
 
 
 
