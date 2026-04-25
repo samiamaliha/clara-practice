@@ -10,7 +10,7 @@ import MintForm from "./form"
 import { client } from "@/lib/client"
 import TaskHandler from "./task-handler"
 import { cn, shortenAddress } from "@/lib/utils"
-import { robinhoodTestnet, pharosTestnet } from "@/configs/chains"
+import { robinhoodTestnet, pharosTestnet, dacTestnet } from "@/configs/chains"
 
 import { Flex, Grid } from "@/components/elements"
 import { H1, H2, Lead, P } from "@/components/typo"
@@ -35,6 +35,10 @@ const MintSection = ({ nft }: { nft: NFT }) => {
     // Check for Pharos Testnet
     if (chainId === 688689) {
       return pharosTestnet;
+    }
+    // Check for DAC Testnet
+    if (chainId === 21894) {
+      return dacTestnet;
     }
     // For all other chains, use Thirdweb's defineChain
     return defineChain(chainId);
