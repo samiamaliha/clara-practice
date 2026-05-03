@@ -1896,6 +1896,54 @@
 }
 
 
+   ,
+
+
+  {
+"id": 46,
+"hash": "daria",
+"name": "DARIA",
+"chain": "Robinhood Chain Testnet",
+"chainID": 46630,
+"address":  "0xa36893342Fd0E51A22e79D5C3A24d36826800Bfd",
+"explorerURI": "https://explorer.testnet.chain.robinhood.com/0xa36893342Fd0E51A22e79D5C3A24d36826800Bfd",
+"description": " **DARIA** 🔥<br/>A Nft on Robinhood Chain Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/daria.jpg",
+"symbol": "ETH",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://faucet.testnet.chain.robinhood.com/",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2047018946122162433",
+    "type": "retweet"
+  },
+
+
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
+
+
+
+,
+
+
 
 
 
