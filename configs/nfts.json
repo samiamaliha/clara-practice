@@ -1941,6 +1941,51 @@
 
 
 
+  ,
+
+
+
+
+
+
+{
+"id": 47,
+"hash": "luria",
+"name": "LURIA",
+"chain": "Arc Testnet",
+"chainID": 5042002,
+"address":  "0xA1E3a6D0030eB9B105d623Ab50daff014F1d9c4a",
+"explorerURI": "https://testnet.arcscan.app/address/0xA1E3a6D0030eB9B105d623Ab50daff014F1d9c4a",
+"description": " **LURIA** 🔥<br/>A Nft on Arc Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/luria.png",
+"symbol": "USDC",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2048029478094532921",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
+
 
 
 
