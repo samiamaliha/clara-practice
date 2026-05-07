@@ -1986,6 +1986,55 @@
 }
 
 
+  
+  ,
+
+
+
+
+
+
+{
+"id": 48,
+"hash": "kitty",
+"name": "KITTY",
+"chain": "Arc Testnet",
+"chainID": 5042002,
+"address":  "0x8267F288BdDA735ebDcb7B83e5D7eD290eB45b19",
+"explorerURI": "https://testnet.arcscan.app/address/0x8267F288BdDA735ebDcb7B83e5D7eD290eB45b19",
+"description": " **KITTY** 🔥<br/>A Nft on Arc Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/kitty.jpg",
+"symbol": "USDC",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2051180012125159610",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
+
+
+
+
 
 
 
