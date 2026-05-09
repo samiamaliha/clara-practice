@@ -2031,6 +2031,49 @@
 
 }
 
+,
+
+
+
+
+
+
+{
+"id": 49,
+"hash": "salia",
+"name": "SALIA",
+"chain": "Dac Testnet",
+"chainID": 21894,
+"address":  "0x6A92E86Ec857603218e221D6996F09fcd3860F35",
+"explorerURI": "https://exptest.dachain.tech/address/0x6A92E86Ec857603218e221D6996F09fcd3860F35",
+"description": " **SALIA** 🔥<br/>A Nft on Dac Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/salia.png",
+"symbol": "tDACC",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2049386684757021117",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
 
 
 
