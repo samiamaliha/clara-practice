@@ -2298,6 +2298,50 @@
 }
 
 
+   ,
+
+
+
+
+
+
+{
+"id": 55,
+"hash": "vexa",
+"name": "VEXA",
+"chain": "Arc Testnet",
+"chainID": 5042002,
+"address":  "0x4183b5d1Bd1Af379f1c492060Ef78F9ed888f0db",
+"explorerURI": "https://testnet.arcscan.app/address/0x4183b5d1Bd1Af379f1c492060Ef78F9ed888f0db",
+"description": " **VEXA** 🔥<br/>A Nft on Arc Testnet 💎<br/>🎁 Unlock exclusive seasonal rewards, giveaways & more ✨",
+"imageURI": "/images/nfts/vexa.png",
+"symbol": "USDC",
+"price": 0.0,
+"tags": "phoenixar",
+"faucetURI": "https://thirdweb.com/arc-testnet",
+"priority": 2,
+"linkTo": "unidrive",
+"tasks": [
+  {
+    "title": "Follow On Twitter",
+    "href": "https://x.com/intent/follow?screen_name=clarachainxyz",
+    "type": "twitter"
+  },
+  {
+    "title": "Retweet The Post",
+    "href": "https://x.com/intent/retweet?tweet_id=2056088688548020580",
+    "type": "retweet"
+  },
+     {
+    "title": "Check ACCESS PASS",
+    "href": "https://www.clarachain.net/access",
+    "type": "claim"
+  }
+
+]
+
+}
+
 
 
 
